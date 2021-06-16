@@ -1,7 +1,12 @@
 <template>
     <header>
-        <input type="text" placeholder="Cerca un film" v-model="toSearch">
-        <button @click="search">Cerca</button>
+        <a href="#">
+            <img src="../assets/images/logo.png" alt="">
+        </a>
+        <div class="search_film">
+            <input type="text" placeholder="Cerca un film" v-model="toSearch">
+            <button @click="search">Cerca</button>            
+        </div>
     </header>
 </template>
 
@@ -13,33 +18,43 @@ export default {
     data: function() {
         return {
             toSearch: "",
-            searchedResults: []
+            allResults: [],
+            movies: [],
+            series: [],
         }
     },
     methods: {
         search: function() {
-            axios
-                .get("https://api.themoviedb.org/3/search/movie", {
-                // .get("https://api.themoviedb.org/3/movie/550?api_key=7a8821b77b6975ec33835d17332ec7b3")
-                // .get("https://developers.themoviedb.org/3/search/movie", {
+            const paramsObj = {
                     params: {
                         api_key: "7a8821b77b6975ec33835d17332ec7b3",
                         query: this.toSearch,
                         language: "it-IT"
                     }
-                })
+                };
+
+            axios
+                .get("https://api.themoviedb.org/3/search/movie", paramsObj)
                 .then( response => {
                     console.log(response);
-                    this.searchedResults = response.data.results;
-                    console.log(this.searchedResults);
+                    this.movies = response.data.results;
 
-                    this.$emit("movieFound", this.searchedResults)
+                    this.$emit("moviesFound", this.movies)
+                })
+                
+            axios
+                .get("https://api.themoviedb.org/3/search/tv", paramsObj)
+                .then( response => {
+                    console.log(response);
+                    this.series = response.data.results;
+
+                    this.$emit("seriesFound", this.series)
                 })
         }
     }
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
 
 </style>
