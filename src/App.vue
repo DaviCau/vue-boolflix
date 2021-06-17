@@ -36,9 +36,16 @@ export default {
 </script>
 
 <style lang="scss">
+  @import '~@fontsource/roboto/index.css';
+  @import '~@fontsource/roboto/700.css';
+
   * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+  }
+
+  body {
+    font-family: 'Roboto';
   }
 </style>

@@ -52,38 +52,43 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    .poster {
-        position: relative;
-        width: 342px;
-        background-color: black;
-        display: flex;
+    section {
+        margin: 0 5px 30px;
 
-        &:hover > img {
-            opacity: 0.1;
-        }
-
-        & > img {
+        .poster {
+            position: relative;
             width: 342px;
-        }
+            background-color: black;
+            display: flex;
 
-        ul {
-            list-style: none;
-            position: absolute;
-            top: 0;
-            left: 0;
-            padding: 20px;
-            color: white;
-
-            li {
-                padding-bottom: 10px;
+            &:hover > img {
+                opacity: 0.1;
             }
 
-            .flag-img {
-                width: 40px;
+            & > img {
+                width: 342px;
+                height: 515px;
             }
 
-            .star {
-                color: gold;
+            ul {
+                list-style: none;
+                position: absolute;
+                top: 0;
+                left: 0;
+                padding: 20px;
+                color: white;
+
+                li {
+                    padding-bottom: 10px;
+                }
+
+                .flag-img {
+                    width: 40px;
+                }
+
+                .star {
+                    color: gold;
+                }
             }
         }
     }
