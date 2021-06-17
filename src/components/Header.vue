@@ -3,9 +3,8 @@
         <a href="#">
             <img src="../assets/images/logo.png" alt="">
         </a>
-        <div class="search_film">
-            <input type="text" placeholder="Cerca un film" v-model="toSearch">
-            <button @click="search">Cerca</button>            
+        <div class="searchbar">
+            <input type="text" placeholder="Cerca un film" v-model="toSearch" @keyup.enter="search">
         </div>
     </header>
 </template>
@@ -56,5 +55,29 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+    header {
+        height: 100px;
+        background-color: black;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        z-index: 1;
 
+        a {
+            margin-left: 20px;
+        }
+
+        .searchbar {
+            margin-right: 20px;
+
+            input {
+                font-size: 18px;
+                width: 300px;
+                padding: 5px;
+            }
+        }
+    }
 </style>

@@ -29,5 +29,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+    main {
+        min-height: 100vh;
+        padding: 100px 20px 0;
+        background-color: #434343;
+    }
 </style>
